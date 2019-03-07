@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+    闪购超市
+{% endblock %}
+{% block extcss %}
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+{#    <link rel="stylesheet" href="{% static 'market/css/swiper.min.css' %}">#}
+    <link rel="stylesheet" href="{% static 'market/css/market.css' %}">
+{% endblock %}
+{% block extjs %}
+{#    <script src="{% static 'market/js/swiper.min.js' %}"></script>#}
+    <script src="{% static 'market/js/market.js' %}"></script>
+{% endblock %}
+{% block content %}
+<div class="market">
+
+<div class="type-slider">
+   <ul>
+       {% for foodtype in foodtypes %}
+        <li>
+            <span></span>
+                        <a href="#">
+                            {% if forloop.counter == foodtype.typesort %}
+                                {{ foodtype.typename }}
+                            {% endif %}
+                        </a>
+        </li>
+       {% endfor %}
+    </ul>
+
+</div>
+<nav>
+<ul>
+    <li>
+        <span>全部类型<i class='
+glyphicon glyphicon-chevron-up'></i>
+        </span></li>
+<li>
+        <span>综合排序 <i class='
+glyphicon glyphicon-chevron-down'></i>
+        </span>
+</li>
+
+</ul>
+</nav>
+</div>
+{% endblock %}
