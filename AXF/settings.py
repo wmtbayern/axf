@@ -128,4 +128,17 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static'),
 ]
 
+MIDEA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/upfile')
+
+CACHES = {
+  "default": {
+      "BACKEND": "django_redis.cache.RedisCache",
+      # 配置redis的位置
+      # 配置主机地址、端口号、数据库
+      "LOCATION": "redis://127.0.0.1:6379/1",
+      "OPTIONS": {
+          "CLIENT_CLASS": "django_redis.client.DefaultClient",
+      }
+  }
+}

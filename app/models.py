@@ -71,6 +71,55 @@ class Foodtype(models.Model):
     class Meta:
         db_table='axf_foodtypes'
 
+class Goods(models.Model):
+    #商品的id
+    productid=models.CharField(max_length=10)
+   #商品图片
+    productimg=models.CharField(max_length=100)
+    #商品名字
+    productname=models.CharField(max_length=100)
+    #商品详细介绍
+    productlongname=models.CharField(max_length=256)
+    #是否精选商品
+    isxf=models.IntegerField()
+    #是否买一送一
+    pmdesc=models.IntegerField()
+    #商品规格
+    specifics=models.CharField(max_length=100)
+    price=models.DecimalField(max_digits=6,decimal_places=2)
+    marketprice=models.DecimalField(max_digits=6,decimal_places=2)
+    #分类的ID
+    categoryid=models.CharField(max_length=100)
+    #子分类的id
+    childcid=models.IntegerField()
+    #子分类的名字
+    childcidname=models.CharField(max_length=100)
+
+    dealerid=models.CharField(max_length=10)
+    storenums=models.IntegerField()  ##排序
+    #销量排序
+    productnum=models.IntegerField()
+    class Meta:
+        db_table='axf_goods'
+
+class User(models.Model):
+    #邮箱
+    email=models.CharField(max_length=40,unique=True)
+    #密码
+    password=models.CharField(max_length=256)
+
+    name=models.CharField(max_length=100)
+    img=models.CharField(max_length=40,default='axf.png')
+    #等级
+    rank=models.IntegerField(default=1)
+
+    class Meta:
+        db_table='axf_user'
+
+
+
+
+
 
 
 

@@ -1,0 +1,19 @@
+#subButton {
+    width: 100%;
+    background:cornflowerblue;
+    color: white;
+    font-size: 25px;
+    margin-top: 25px;
+}
+.register .back{
+    text-align: right;
+}
+.register .back a{
+    font-size: 1.5rem;
+}
+.register form .input-group{
+    margin: 0.5rem 0;
+}
+.register form{
+    padding: 0 1rem;
+}
