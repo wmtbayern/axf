@@ -53,14 +53,14 @@ $(function () {
         // }
 
         // 取反
-        categoryShow = !categoryShow
+        categoryShow = !categoryShow;
         categoryShow ? categoryViewShow() : categoryViewHide()
 
         console.log('子类点击')
     });
 
     function categoryViewShow() {
-        $('.category-view').show()
+        $('.category-view').show();
         $('#category-bt i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down')
 
         sortViewHide()

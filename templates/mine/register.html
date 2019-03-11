@@ -22,15 +22,24 @@
         <form action="{% url 'axf:register' %}" method="post">
             {% csrf_token %}
 
-             <div class="input-group">
-                <span class="input-group-addon">邮箱</span>
-                <input type="text" class="form-control" placeholder="163邮箱/QQ邮箱.." name="email">
+              <div class="form-group has-feedback" id="email">
+                <div class="input-group">
+                    <span class="input-group-addon">邮箱</span>
+                    <input type="text" class="form-control" placeholder="163邮箱/其他邮箱.." name="email" id="email-t"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="格式不正确">
+                </div>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
             </div>
 
-            <div class="input-group">
-                <span class="input-group-addon">密码</span>
-                <input type="password" class="form-control" placeholder="6~10位数密码" name="password">
+            <div class="form-group has-feedback" id="password">
+                <div class="input-group">
+                    <span class="input-group-addon">密码</span>
+                    <input type="password" class="form-control" placeholder="6~10位数密码" name="password">
+                </div>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
             </div>
+
 
             <div class="input-group">
                 <span class="input-group-addon">确认密码</span>
@@ -49,7 +58,6 @@
                 <input type="submit" value="注册" id="subButton">
 
         </form>
-
     </div>
 
 

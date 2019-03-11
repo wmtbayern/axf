@@ -102,6 +102,8 @@ class Goods(models.Model):
     class Meta:
         db_table='axf_goods'
 
+
+#用户模型
 class User(models.Model):
     #邮箱
     email=models.CharField(max_length=40,unique=True)
@@ -116,9 +118,26 @@ class User(models.Model):
     class Meta:
         db_table='axf_user'
 
+#购物车模型
+class Cart(models.Model):
+    #使用关联字段就可以了
+    #不用都把数据拿过来
+    #用户(添加的商品属于哪个用户)
+    user=models.ForeignKey(User)
+    #商品(添加的是哪个属性)
+    goods=models.ForeignKey(Goods)
 
+    #商品的规格,有哪些字段是要显示的(颜色,内存,版本,大小)
 
+    #商品数量
+    number=models.IntegerField()
+    #是否选中
+    isselect=models.BooleanField(default=True)
+    #是否删除   (逻辑删除)
+    isdelete=models.BooleanField(default=False)
 
+    class Meta:
+        db_table='axf_cart'
 
 
 
