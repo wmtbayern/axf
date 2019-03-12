@@ -21,6 +21,13 @@ urlpatterns=[
     url(r'^logout/$', views.logout, name='logout'),
     url(r'^register/$', views.register, name='register'),
     url(r'^checkemail/$',views.checkemail,name='checkemail'),
-    url(r'^addcart/$',views.addcart,name="addcart"),
+    url(r'^addcart/$', views.addcart, name="addcart"),
+    url(r'^subcart/$',views.subcart,name="subcart"),
+    url(r'^changecartselect/$', views.changecartselect, name='changecartselect'),
+    url(r'^changecartall/$', views.changecartall, name='changecartall'),
+    url(r'^generateorder/$', views.generateorder, name='generateorder'),
+    url(r'^orderlist/$', views.orderlist, name='orderlist'),
+    #a标签跳转的时候有传递参数过来
+    url(r'^orderdetail/(?P<identifier>[\d.]+)/$', views.orderdetail, name='orderdetail'),
 
 ]

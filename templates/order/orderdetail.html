@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block footer %}
+
+{% endblock %}
+{% block title %}
+    订单详情
+{% endblock %}
+{% block content %}
+    <div class="orderdetail">
+        <h4>
+            订单号:{{ order.identifier }}
+        </h4>
+         <ul>
+            {#之传过来了order  但可以通过order获取ordergoods#}
+            {% for ordergoods in order.ordergoods_set.all %}
+            <li>
+                <span>{{ ordergoods.goods.productlongname }}</span>
+                &nbsp;&nbsp;
+                <b>x{{ ordergoods.number }}</b>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{%  endblock %}

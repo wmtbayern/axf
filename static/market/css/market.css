@@ -189,7 +189,7 @@ footer .market .name {
     bottom: 0;
     display: none;
 }
-.market .main-content .bounce-view .bounce-view{
+.market .main-content .bounce-view .bounce-wrapper{
     background: white;
     padding: 0.5rem;
 }

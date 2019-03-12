@@ -1,8 +1,6 @@
 from django.db import models
 
 # Create your models here.
-
-
 #基础类
 class BaseModel(models.Model):
     img=models.CharField(max_length=100)
@@ -10,8 +8,7 @@ class BaseModel(models.Model):
     trackid=models.CharField(max_length=10)
 
     class Meta:
-        abstract=True
-
+        abstract=True   #抽象化,不会生成实际的表
 
 #注意表名字要一样
 #cosolo  选中sql语句   可以执行mysql语句
@@ -119,6 +116,7 @@ class User(models.Model):
         db_table='axf_user'
 
 #购物车模型
+#
 class Cart(models.Model):
     #使用关联字段就可以了
     #不用都把数据拿过来
@@ -138,7 +136,35 @@ class Cart(models.Model):
 
     class Meta:
         db_table='axf_cart'
+#一个用户对应多个订单
+#
+class Order(models.Model):
+    #用户,user一对多 order
+    user=models.ForeignKey(User)
+    #订单创建时间
+    createtime=models.DateTimeField (auto_now_add=True)
+    #更新时间
+    updatetime=models.DateTimeField(auto_now=True)
+    #状态
+    # -1 过期
+    # 0 未付款
+    # 1 已经付款
+    # 2 已发貨
+    # 3 已经收货
+    # 4 已经评价
+    status=models.IntegerField(default=0)
 
+    identifier=models.CharField(max_length=256)
 
-
+#订单商品  模型类
+#一个订单  对应多个  订单商品
+# 订单商品里面的商品是由购物车里面的商品转移而来  ,因为付款后购物车里面没有了商品
+#而购物车里面的商品只是对goods表里面的数据进行展示,没有转移
+class OrderGoods(models.Model):
+    #订单  关联
+    order=models.ForeignKey(Order)
+    #商品
+    goods=models.ForeignKey(Goods)
+    #商品选择规格
+    number=models.IntegerField()
 
